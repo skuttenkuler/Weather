@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
    var currentDay = moment().format('dddd');
-   var currentDate = moment().format('MMM Do YY');
+   var currentDate = moment().format('MMM Do YYYY');
    var cityArr = ["Nashville","San Francisco", "Houston" ];
     
     function getData(){
@@ -41,7 +41,8 @@ $(document).ready(function(){
             //current weather city current date icon for current weather
             currentHeader = $("<h2>").text(response.name +":  "+ currentDay + "  " + "( " + currentDate + " )");
             //p tag for temperature
-            currentTemp = $("<p>").text("Tempurature: " + response.main.temp + "°");
+            let tempfloor = Math.floor(response.main.temp)
+            currentTemp = $("<p>").text("Tempurature: " + tempfloor + "°");
             // humidity
             currentHum = $("<p>").text("Humidity: " + response.main.humidity+"%");
             //wind speed
@@ -119,7 +120,8 @@ $(document).ready(function(){
     }
     function getFiveDay(data){
         $(".five-day").empty()
-        //console.log(data)
+        var header = $("<h1>").text("Five Day Forcast");
+        $(".fiveHeader").append(header)
         var name = data.name
         //console.log(name)
         var WeatherAPIKey = "c16c4a8fdb9c60761ec51031deb88c71";
@@ -129,6 +131,7 @@ $(document).ready(function(){
                 //console.log(fiveday.list)
                 for(var i = 0; i < fiveday.list.length; i ++){
                     var fiveDayContainer = $("<div>");
+                    fiveDayContainer.addClass("five-day-card")
                     var fivedayTemp = fiveday.list[i].main.temp;
                     var fivedayHum = fiveday.list[i].main.humidity + "% ";
                     var icon = fiveday.list[i].weather[0].main
@@ -154,11 +157,13 @@ $(document).ready(function(){
                     var valNum = parseFloat(fivedayTemp);
                     //convert K degrees to Fahrenhiet
                     var tempF = Math.floor(((valNum - 273.15)*1.8) + 32);
-                    var tempEl = $("<p>").text(tempF + "°");
-                    var humEl = $("<p>").text(fivedayHum);
+                    var tempEl = $("<p>").text("Temp: " +tempF + "°");
+                    var humEl = $("<p>").text("Humidity: " + fivedayHum);
                     //console.log(tempF)
                     fiveDayContainer.append(iconEl,tempEl, humEl);
                     $(".five-day").append(fiveDayContainer);
+                    
+
                     
                 }
             

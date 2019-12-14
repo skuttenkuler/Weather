@@ -1,7 +1,12 @@
-
+body{
+    background-image: url("../images/weather.jpg");
+    background-size: cover;
+}
 
 .head{
-    background-color: aqua;
+    background-color: rgb(68, 68, 68);
+    color: white;
+    height: 70px;
     display: flex;
     justify-content: center;
 }
@@ -15,16 +20,53 @@
     height: 20%;
     margin-right:10px;
     margin-bottom: 10px;
-    background-color: tomato;
+    
 }
-.card{
-    margin: 5px;
-    border-radius: 5px;
-}
+
 .button{
     width: 250px;
     height:70px;
 }
 .display-cities{
+    position: fixed;
+    left: 0;
+    margin-top:100px;
+}
+.display-cities button{
+    font-size: 30px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: teal;
+    color: azure;
+    opacity: .85;
+}
+.searchbar{
+    position: fixed;
+    left: 0;
+    margin-top:25px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+.searchbar button{
+    background-color: teal;
+    color: azure;
+    border-radius: 15px;
+}
+.five-day-card{
+    background-color: deepskyblue;
+    width:160px;
+    float: left;
+    margin-right:30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+}
 
+.currentWeatherContainer{
+    font-size: 30px;
+    margin-top: 25px;
+    color: deepskyblue;
 }
