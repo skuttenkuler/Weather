@@ -7,7 +7,7 @@ Weather App that displays selected city's current weather and five day forcast. 
 * JQuery
 * Local Storage
 # Deployed Site
-* [Password Generator](https://skuttenkuler.github.io/Code-Quiz/)
+* [Password Generator](https://skuttenkuler.github.io/Weather/)
 
 # Screenshot
 ![Alt text](./assets/images/screen.png?raw=true "Optional Title")
