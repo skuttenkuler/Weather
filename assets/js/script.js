@@ -3,7 +3,7 @@ $(document).ready(function(){
    var currentDay = moment().format('dddd');
    var currentDate = moment().format('MMM Do YYYY');
    var cityArr = ["Nashville","San Francisco", "Houston" ];
-   localStorage.setItem(JSON.stringify("list",cityArr));
+   
     
     function getData(){
                 //need  city date icon temp humidity wind speed uv index
@@ -77,7 +77,7 @@ $(document).ready(function(){
     
     function renderLocations(){
         $(".display-cites").empty();
-            var cities = localStorage.getItem("list");
+            var cities = localStorage.getItem("cities");
             var cityList = cities.split(",")
             for(var i =0; i < cityList.length; i++){
                 //create a div to contain
