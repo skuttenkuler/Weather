@@ -4,7 +4,9 @@ $(document).ready(function(){
    var currentDate = moment().format('MMM Do YYYY');
    var cityArr = ["Nashville","San Francisco", "Houston" ];
    
-    
+    function pushList(){
+        localStorage.setItem("cities", cityArr);
+    }
     function getData(){
                 //need  city date icon temp humidity wind speed uv index
         $(".currentWeatherContainer").empty()
@@ -76,6 +78,7 @@ $(document).ready(function(){
     }
     
     function renderLocations(){
+       
         $(".display-cites").empty();
             var cities = localStorage.getItem("cities");
             var cityList = cities.split(",")
@@ -176,6 +179,7 @@ $(document).ready(function(){
     
     $(document).on("click", ".button", getData);
     $(".submit").on("click", addLocation);
-    renderLocations()
+    pushList();
+    renderLocations();
 
 });
